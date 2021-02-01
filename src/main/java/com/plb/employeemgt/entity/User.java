@@ -93,4 +93,15 @@ public class User implements Serializable {
     public int hashCode() {
         return Objects.hash(email, firstName, lastName);
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
+    }
 }

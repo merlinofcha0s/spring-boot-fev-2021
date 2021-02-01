@@ -23,6 +23,15 @@ public class Vinyl implements Serializable {
     @ManyToOne
     private User user;
 
+    public Vinyl() {
+    }
+
+    public Vinyl(String songName, LocalDate releaseDate, User user) {
+        this.songName = songName;
+        this.releaseDate = releaseDate;
+        this.user = user;
+    }
+
     public Long getId() {
         return id;
     }
@@ -66,5 +75,14 @@ public class Vinyl implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hash(songName, releaseDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Vinyl{" +
+                "id=" + id +
+                ", songName='" + songName + '\'' +
+                ", releaseDate=" + releaseDate +
+                '}';
     }
 }

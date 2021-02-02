@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee management</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h1>Employee mgt</h1>
+                        <a class="btn btn-primary h-50" th:href="@{/employees/new}" type="button">Create employee</a>
+                    </div>
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Salary</th>
+                            <th>Commission pct</th>
+                            <th>Hire date</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr scope="row" th:if="${employees.empty}">
+                            <td colspan="2"> No Employees Available</td>
+                        </tr>
+                        <tr scope="row" th:each="employee : ${employees}">
+                            <td><span th:text="${employee.id}"></span></td>
+                            <td><span th:text="${employee.salary}"></span></td>
+                            <td><span th:text="${employee.commissionPct}"> </span></td>
+                            <td><span th:text="${employee.hireDate}"> </span></td>
+                            <td><a th:href="@{|/employees/${employee.id}}">Details</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

@@ -1,5 +1,7 @@
 package com.plb.employeemgt.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -31,6 +33,7 @@ public class Job implements Serializable {
     @JoinTable(name = "job_task",
                joinColumns = @JoinColumn(name = "job_id", referencedColumnName = "id"),
                inverseJoinColumns = @JoinColumn(name = "task_id", referencedColumnName = "id"))
+    @JsonIgnoreProperties("jobs")
     private Set<Task> tasks = new HashSet<>();
 
     @ManyToOne

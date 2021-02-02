@@ -1,5 +1,6 @@
 package com.plb.employeemgt.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -28,6 +29,7 @@ public class Employee {
     private Long commissionPct;
 
     @OneToMany(mappedBy = "employee")
+    @JsonIgnoreProperties("employee")
     private Set<Job> jobs = new HashSet<>();
 
     @ManyToOne

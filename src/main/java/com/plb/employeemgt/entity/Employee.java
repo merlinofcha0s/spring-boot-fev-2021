@@ -16,6 +16,7 @@ public class Employee {
     private Long id;
 
     @Column(name = "hire_date", nullable = false)
+
     private LocalDate hireDate;
 
     @Column(name = "salary", nullable = false)

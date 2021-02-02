@@ -38,6 +38,13 @@ public class EmployeemgtApplication {
 
             userRepository.save(newUser);
 
+            User newUser3 = new User();
+            newUser3.setEmail("tata@toto.com");
+            newUser3.setFirstName("tata");
+            newUser3.setLastName("tata");
+
+            userRepository.save(newUser3);
+
             Vinyl inTheEnd = new Vinyl("In the end", LocalDate.of(2000, 10, 24), newUser);
             Vinyl papercut = new Vinyl("Papercut", LocalDate.of(2000, 10, 24), newUser);
             Vinyl oneStepCloser = new Vinyl("One step closer", LocalDate.of(2000, 10, 24), newUser);

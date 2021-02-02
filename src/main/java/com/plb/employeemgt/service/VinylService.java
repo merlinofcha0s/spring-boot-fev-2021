@@ -18,4 +18,8 @@ public class VinylService {
     public List<Vinyl> getVinylsByUser(String email) {
         return vinylRepository.findAllByUserEmail(email);
     }
+
+    public Vinyl save(Vinyl vinyl) {
+        return vinylRepository.save(vinyl);
+    }
 }

@@ -1,5 +1,7 @@
 package com.plb.employeemgt.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -18,6 +20,7 @@ public class Vinyl implements Serializable {
     private String songName;
 
     @Column(name = "release_date", nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
 
     @ManyToOne

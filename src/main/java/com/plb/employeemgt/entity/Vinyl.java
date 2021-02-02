@@ -1,5 +1,6 @@
 package com.plb.employeemgt.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -24,6 +25,7 @@ public class Vinyl implements Serializable {
     private LocalDate releaseDate;
 
     @ManyToOne
+    @JsonIgnoreProperties("vinyls")
     private User user;
 
     public Vinyl() {

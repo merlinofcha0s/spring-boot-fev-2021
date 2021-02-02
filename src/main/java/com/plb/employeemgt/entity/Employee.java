@@ -1,5 +1,7 @@
 package com.plb.employeemgt.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -16,7 +18,7 @@ public class Employee {
     private Long id;
 
     @Column(name = "hire_date", nullable = false)
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate hireDate;
 
     @Column(name = "salary", nullable = false)

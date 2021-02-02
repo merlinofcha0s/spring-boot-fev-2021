@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create new employee</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>Employees mgt</h1>
+                    <form action="#" method="post" th:action="@{/employees}" th:object="${employee}">
+                        <div class="form-group">
+                            <label for="salary" >Salary</label>
+                            <input aria-describedby="salaryHelp" class="form-control" id="salary" placeholder="Salary" th:field="*{salary}" th:value="*{salary}" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="commissionPct">Commission pct</label>
+                            <input class="form-control" id="commissionPct" placeholder="Commission PCT" th:field="*{commissionPct}" th:value="*{commissionPct}" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="commissionPct">Hire date</label>
+                            <input class="form-control" id="hireDate" placeholder="Hire Date" th:field="*{hireDate}" th:value="*{hireDate}" type="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobs">Job</label>
+                            <select class="form-control" id="jobs" th:field="*{jobs}">
+                                <option th:each="job : ${jobs}" th:text="${job.jobTitle}" th:value="${job.id}"></option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

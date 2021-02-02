@@ -30,6 +30,11 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private Set<Vinyl> vinyls = new HashSet<>();
 
+
+    //ROLE_ADMIN,ROLE_USER
+    @Column(name = "authorities")
+    private String authorities;
+
     public User() {
     }
 
@@ -79,6 +84,15 @@ public class User implements Serializable {
 
     public void setVinyls(Set<Vinyl> vinyls) {
         this.vinyls = vinyls;
+    }
+
+
+    public String getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(String authorities) {
+        this.authorities = authorities;
     }
 
     @Override

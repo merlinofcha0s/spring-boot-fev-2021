@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.StandardEnvironment;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -29,12 +30,15 @@ public class EmployeemgtApplication {
                                         VinylRepository vinylRepository,
                                         EmployeeRepository employeeRepository,
                                         JobRepository jobRepository,
-                                        TaskRepository taskRepository) {
+                                        TaskRepository taskRepository,
+                                        PasswordEncoder passwordEncoder) {
         return args -> {
             User newUser = new User();
             newUser.setEmail("toto@toto.com");
             newUser.setFirstName("toto");
             newUser.setLastName("tata");
+            newUser.setAuthorities("USER");
+            newUser.setPassword(passwordEncoder.encode("toto"));
 
             userRepository.save(newUser);
 
@@ -42,6 +46,8 @@ public class EmployeemgtApplication {
             newUser3.setEmail("tata@toto.com");
             newUser3.setFirstName("tata");
             newUser3.setLastName("tata");
+            newUser3.setAuthorities("USER");
+            newUser3.setPassword(passwordEncoder.encode("toto"));
 
             userRepository.save(newUser3);
 

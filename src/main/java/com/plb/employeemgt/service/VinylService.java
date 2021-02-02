@@ -31,4 +31,8 @@ public class VinylService {
     public Vinyl save(Vinyl vinyl) {
         return vinylRepository.save(vinyl);
     }
+
+    public void delete(Long id) {
+        vinylRepository.deleteById(id);
+    }
 }

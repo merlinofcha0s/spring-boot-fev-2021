@@ -30,7 +30,6 @@ public class User implements Serializable {
     @OneToMany(mappedBy = "user")
     private Set<Vinyl> vinyls = new HashSet<>();
 
-
     //ROLE_ADMIN,ROLE_USER
     @Column(name = "authorities")
     private String authorities;

@@ -6,9 +6,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
+
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -25,6 +27,10 @@ public class UserService {
 
     public List<User> getAll() {
         return userRepository.findAll();
+    }
+
+    public Optional<User> getById(Long id) {
+        return userRepository.findById(id);
     }
 
 }

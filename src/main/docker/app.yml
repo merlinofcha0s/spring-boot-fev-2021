@@ -1,0 +1,16 @@
+version: '2'
+services:
+  employeemgt-app:
+    image: employeemgt
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://employeemgt-postgresql:5432/employeemgt
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=azerty
+    ports:
+      - 8080:8080
+  employeemgt-postgresql:
+    extends:
+      file: postgresql.yml
+      service: employeemgt-postgresql

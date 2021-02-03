@@ -1,0 +1,10 @@
+version: '2'
+services:
+  employeemgt-postgresql:
+    image: postgres:12.4
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=azerty
+      - POSTGRES_DB=employeemgt
+    ports:
+      - 5432:5432

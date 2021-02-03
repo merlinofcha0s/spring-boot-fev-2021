@@ -107,4 +107,12 @@ public class UserServiceTest {
         Optional<User> user = userRepository.findByEmail(DEFAULT_EMAIL);
         assertThat(user).isNotPresent();
     }
+
+    @Test
+    public void deleteUserSuccessfuly() {
+        User userSaved = userService.save(user);
+        Optional<User> userByIdBefore = userService.getById(userSaved.getId()); assertThat(userByIdBefore).isPresent();
+        userService.delete(userSaved.getId());
+        Optional<User> userById = userService.getById(userSaved.getId()); assertThat(userById).isNotPresent();
+    }
 }
